@@ -1,2 +1,5 @@
 # dynatrace-data-sdk
-This is a package that simplifies sending various types of data into your Dynatrace tenant.
+
+## Introduction
+
+This package aims at simplifying data interactions with your Dynatrace tenant (JavaScript) SDK. It can be used directly for any JavaScript application or NodeJs server-side application.
