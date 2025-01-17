@@ -2,7 +2,7 @@
   "name": "dynatrace-data-sdk",
   "version": "0.0.3",
   "type": "module",
-  "description": "This is a package that simplifies sending various types of data into your Dynatrace tenant.",
+  "description": "A package to facilitate the ingestion of various data types into Dynatrace.",
   "main": "./lib/index.js",
   "module": "./lib/index.module.js",
   "source": "./src/index.ts",
