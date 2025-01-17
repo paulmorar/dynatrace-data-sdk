@@ -13,7 +13,10 @@
   "scripts": {
     "ts-declaration": "tsc --declaration --emitDeclarationOnly --outDir lib",
     "typecheck": "tsc --noEmit && echo \"Checked types for dynatrace-data-sdk\" ",
-    "build": "npm run ts-declaration && node ./build.js && echo 'JS build complete'"
+    "build": "npm run ts-declaration && node ./build.js && echo 'JS build complete'",
+    "test": "vitest",
+    "cov": "vitest --ui",
+    "coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -32,9 +35,12 @@
   },
   "homepage": "https://github.com/paulmorar/dynatrace-data-sdk#readme",
   "devDependencies": {
+    "@vitest/coverage-v8": "^3.0.2",
+    "@vitest/ui": "3.0.2",
     "esbuild": "0.24.2",
     "ts-node": "10.9.2",
-    "typescript": "5.7.3"
+    "typescript": "5.7.3",
+    "vitest": "3.0.2"
   },
   "dependencies": {
     "axios": "1.7.9"
