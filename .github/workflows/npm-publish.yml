@@ -5,21 +5,21 @@ name: Package publish
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           registry-url: https://registry.npmjs.org/
-      - name:  'Automated Version Bump'
-        uses:  'phips28/gh-action-bump-version@master'
+      - name: "Automated Version Bump"
+        uses: "phips28/gh-action-bump-version@master"
         with:
-          tag-prefix:  ''
+          tag-prefix: ""
       - run: npm ci
       - run: npm run build
       - run: npm publish
