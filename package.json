@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit && echo \"Checked types for dynatrace-data-sdk\" ",
     "build": "npm run ts-declaration && node ./build.js && echo 'JS build complete'",
     "test": "vitest",
-    "cov": "vitest --ui",
+    "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage"
   },
   "repository": {

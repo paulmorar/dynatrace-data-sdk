@@ -6,6 +6,13 @@ export default defineConfig({
     environment: "node",
     coverage: {
       reportsDirectory: "./tests/unit/coverage",
+      exclude: [
+        "*.config.ts",
+        "build.js",
+        "src/index.ts",
+        "src/initialize.ts",
+        "src/types.ts",
+      ],
     },
   },
 });
