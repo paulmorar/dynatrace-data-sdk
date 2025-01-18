@@ -1,6 +1,6 @@
 {
   "name": "dynatrace-data-sdk",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "description": "A package to facilitate the ingestion of various data types into Dynatrace.",
   "main": "./lib/index.js",
