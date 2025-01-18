@@ -6,22 +6,21 @@ export const sendLogs = async (
   token: string,
   logs: Log[]
 ) => {
-  axios({
-    method: "post",
-    url: `https://${tenantId}.live.dynatrace.com/api/v2/logs/ingest`,
-    headers: {
-      Accept: "application/json; charset=utf-8",
-      "Content-Type": "application/json; charset=utf-8",
-      Authorization: `Api-Token ${token}`,
-    },
-    data: logs,
-  })
-    .then((data) => {
-      console.log(`Successfully posted log: ${data.status}`, logs);
-    })
-    .catch((err) => {
-      console.log("Error posting log: ", logs);
-      console.log(JSON.stringify(err.response.data));
-      throw err;
+  try {
+    const response = await axios({
+      method: "post",
+      url: `https://${tenantId}.live.dynatrace.com/api/v2/logs/ingest`,
+      headers: {
+        Accept: "application/json; charset=utf-8",
+        "Content-Type": "application/json; charset=utf-8",
+        Authorization: `Api-Token ${token}`,
+      },
+      data: logs,
     });
+    console.log(`Successfully posted log: ${response.status}`, logs);
+  } catch (err) {
+    console.log("Error posting log: ", logs);
+    console.log(JSON.stringify(err));
+    throw err;
+  }
 };

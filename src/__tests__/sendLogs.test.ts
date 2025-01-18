@@ -44,19 +44,11 @@ test("sendLogs should handle errors", async () => {
     },
   ];
 
-  const mockError = {
-    response: {
-      status: 400,
-      data: { error: "Bad Request" },
-    },
-  };
-  (axios as any).mockRejectedValue(mockError);
+  (axios as any).mockRejectedValueOnce("huston_we_have_a_problem");
 
-  try {
-    await sendLogs("tenantId", "token", logs);
-  } catch (error) {
-    expect(error).toEqual(mockError);
-  }
+  await expect(sendLogs("tenantId", "token", logs)).rejects.toThrow(
+    "huston_we_have_a_problem"
+  );
 
   expect(axios).toHaveBeenCalledWith(
     expect.objectContaining({
